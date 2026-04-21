@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message For You</title>
+    <style>
+        /* CSS UNTUK TAMPILAN NYOLOT & ROMANTIS */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 10;
+            max-width: 400px;
+            position: relative;
+        }
+
+        h1 {    
+            color: #d81b60;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* FONT NYOLOT UNTUK BAGIAN TERTENTU */
+        .nyolot {
+            font-family: 'Impact', sans-serif;
+            font-style: italic;
+            color: #ff0000;
+            font-size: 2rem;
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            height: 50px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #btnYa {
+            background-color: #ff1493;
+            color: white;
+            font-weight: bold;
+        }
+
+        #btnYa:hover {
+            transform: scale(1.1);
+            background-color: #ff69b4;
+        }
+
+        #btnTidak {
+            background-color: #888;
+            color: white;
+            position: absolute;
+        }
+
+        /* ANIMASI HATI */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 20px;
+            user-select: none;
+            z-index: 1;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <div id="content">
+            <span class="nyolot">Akuu mau samaa kamuuu, selamanyaaaa😘</span>
+            <h1>Nurlaila Aprilia Zamil my bocill kesayangan, kamuu Mau Ndaa Jadi Pacar akuuu🥺😘?</h1>
+            <div class="buttons">
+                <button id="btnYa" onclick="terima()">Iyaaa, akuu mauu cill! ❤️</button>
+                <button id="btnTidak" onmouseover="hindari()">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // FUNGSI TOMBOL TIDAK MENGHINDAR
+        function hindari() {
+            const btnTidak = document.getElementById('btnTidak');
+            const x = Math.random() * (window.innerWidth - btnTidak.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btnTidak.offsetHeight);
+            
+            btnTidak.style.left = x + 'px';
+            btnTidak.style.top = y + 'px';
+        }
+
+        // FUNGSI SAAT KLIK YA
+        function terima() {
+            const container = document.getElementById('content');
+            container.innerHTML = "<h1 style='font-size: 3rem;'>Wopyuuu bocilll! ❤️</h1><p>Status: yeyy pacarann mwahh!</p>";
+            
+            // Jalankan hujan hati & bunga
+            setInterval(buatHati, 150);
+            setInterval(buatBunga, 200);
+        }
+
+        function buatHati() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+            
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+
+        function buatBunga() {
+            const flower = document.createElement('div');
+            flower.classList.add('heart');
+            flower.innerHTML = '🌸';
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(flower);
+            
+            setTimeout(() => { flower.remove(); }, 5000);
+        }
+    </script>
+</body>
+<audio autoplay loop>
+  <source src="link-lagu-romantis.mp3" type="audio/mpeg">
+</audio>
+</html>
